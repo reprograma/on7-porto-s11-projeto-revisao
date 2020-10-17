@@ -134,16 +134,19 @@ const app = express()
 app.use(express.json())
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Origin", "*") // informo que minha api poderá ser chamada de qualquer lugar. Por um browser, por exemplo.
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
     )
     next()
+    // como criei uma função dentro do app.use, preciso dar um "next()" para mandar ele seguir para a próxima middleware. 
+    // se eu não faço isso, a requisição vai ficar travada aí.
 })
 
 module.exports = app
 ```
+O *app.use* adiciona uma middleware na nossa aplicação. Por exemplo, quando fazemos ```app.use(express.json())```, estou dizendo que minha api irá trabalhar com json. Isso significa, por exemplo, que quando eu fizer um POST, minha api irá entender que vou receber um json.
 
 Criaremos agora, na raíz de "jansensfilms", um arquivo chamado “server.js” para configurarmos nosso servidor. Nesse arquivo criaremos uma constante *app* que receberá nossa aplicação express que criamos no arquivo *app.js*. No caso definimos a porta 3000 para o nosso servidor rodar quando for inicializado.
 
@@ -157,6 +160,8 @@ app.listen(port, () => {
 ```
 
 Quando criamos o servidor utilizando o protocolo HTTP, definimos um callback que será executado sempre que recebermos uma requisição web. Nesse caso, esse callback seria executado quando o nosso servidor for iniciado e aparecerá a mensagem “Servidor está rodando na porta 3000”.
+
+Como nosso arquivo que irá inicializar o servidor se chama "server.js", devemos informar isso no arquivo *package.json* alterando ```"main": "index.js"``` para ```"main": "server.js"```.
 
 ### Testando o servidor
 
@@ -215,14 +220,12 @@ const index = require("./routes/index")
 app.use(express.json())
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*") // informo que minha api poderá ser chamada de qualquer lugar. Por um browser, por exemplo.
+    res.header("Access-Control-Allow-Origin", "*")
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
     )
-    next() 
-    // como criei uma função dentro do app.use, preciso dar um "next()" para mandar ele seguir para a próxima middleware. 
-    // se eu não faço isso, a requisição vai ficar travada aí.
+    next()
 })
 
 app.use("/", index)
@@ -230,16 +233,40 @@ app.use("/", index)
 module.exports = app
 ```
 
-O *app.use* adiciona uma middleware na nossa aplicação. Por exemplo, quando fazemos ```app.use(express.json())```, estou dizendo que minha api irá trabalhar com json. Isso significa, por exemplo, que quando eu fizer um POST, minha api irá entender que vou receber um json.
-
 Agora com a rota desenvolvida, ao executarmos no browser *http://localhost:3000* não deverá mais apresentar o erro de GET.
 
 
 ### Nova rota de GET para retornar os filmes
 
-A empresa Jansen's Films acabou de te enviar uma base de dados de exemplo chamado *movies.json*. Essa contém uma listagem de filmes que deveremos trabalhar. Com a listagem em mãos, poderemos desenvolver uma rota GET que exibirá essa listagem toda vez que uma requisição para listar os filmes seja chamada.
+A empresa Jansen's Films acabou de te enviar uma base de dados de exemplo chamado *movies.json*. Essa contém uma listagem de filmes que deveremos trabalhar. Com a listagem em mãos, poderemos desenvolver uma rota GET que exibirá essa listagem toda vez que uma requisição para listar os filmes seja chamada:
 
-Para que nosso projeto fique organizado, iremos colocar o arquivo *movies.json* que você recebeu dentro da pasta *model*. Iremos, em seguida, na pasta *routes* e criaremos um arquivo chamado *movies.js*. Nesse, iremos armazenar todas as rotas referentes aos filmes. Nosso projeto deverá estar com a seguinte estrutura:
+```json
+[
+    {
+        "id": 1,
+        "name": "Malévola",
+        "genre": "Aventura",
+        "synopsis": "Malévola, uma jovem de coração puro, vive em um pacífico reino na floresta (...)",
+        "watched": true
+    },
+    {
+        "id": 2,
+        "name": "Um sonho possível",
+        "genre": "Drama",
+        "synopsis": "Michael Oher é negro, pobre, grandalhão e calado. Ele foi abandonado pela mãe e agora (...)",
+        "watched": false
+    },
+    {
+        "id": 3,
+        "name": "Jogos Vorazes",
+        "genre": "Aventura",
+        "synopsis": "Num futuro distante, boa parte da população é controlada por um regime totalitário, que (...)",
+        "watched": false
+    }
+]
+```
+
+Para que nosso projeto fique organizado, iremos colocar o arquivo *movies.json* que você recebeu dentro da pasta *models*. Iremos, em seguida, na pasta *routes* e criaremos um arquivo chamado *movies.js*. Nesse, iremos armazenar todas as rotas referentes aos filmes. Nosso projeto deverá estar com a seguinte estrutura:
 
 ```
 jansensfilms
