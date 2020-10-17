@@ -238,7 +238,33 @@ Agora com a rota desenvolvida, ao executarmos no browser *http://localhost:3000*
 
 ### Nova rota de GET para retornar os filmes
 
-A empresa Jansen's Films acabou de te enviar uma base de dados de exemplo chamado *movies.json*. Essa contém uma listagem de filmes que deveremos trabalhar. Com a listagem em mãos, poderemos desenvolver uma rota GET que exibirá essa listagem toda vez que uma requisição para listar os filmes seja chamada.
+A empresa Jansen's Films acabou de te enviar uma base de dados de exemplo chamado *movies.json*. Essa contém uma listagem de filmes que deveremos trabalhar. Com a listagem em mãos, poderemos desenvolver uma rota GET que exibirá essa listagem toda vez que uma requisição para listar os filmes seja chamada:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Malévola",
+        "genre": "Aventura",
+        "synopsis": "Malévola, uma jovem de coração puro, vive em um pacífico reino na floresta (...)",
+        "watched": true
+    },
+    {
+        "id": 2,
+        "name": "Um sonho possível",
+        "genre": "Drama",
+        "synopsis": "Michael Oher é negro, pobre, grandalhão e calado. Ele foi abandonado pela mãe e agora (...)",
+        "watched": false
+    },
+    {
+        "id": 3,
+        "name": "Jogos Vorazes",
+        "genre": "Aventura",
+        "synopsis": "Num futuro distante, boa parte da população é controlada por um regime totalitário, que (...)",
+        "watched": false
+    }
+]
+```
 
 Para que nosso projeto fique organizado, iremos colocar o arquivo *movies.json* que você recebeu dentro da pasta *models*. Iremos, em seguida, na pasta *routes* e criaremos um arquivo chamado *movies.js*. Nesse, iremos armazenar todas as rotas referentes aos filmes. Nosso projeto deverá estar com a seguinte estrutura:
 
