@@ -51,6 +51,6 @@ Por exemplo, perto da minha casa só tem uma veterinária que atende gatinhos =/
 #### Contratos para ir ao infinito e além
 
 - [ ] Criar uma rota com filtro, para mostrar somente pets que atendem ou cães, ou gatos, etc
-- [ ] Mostrar somente pets de São Paulos
+- [ ] Mostrar somente pets de São Paulo
 
 ---

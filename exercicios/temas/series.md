@@ -7,13 +7,11 @@
 
 ## Tema
 
-Durante a aula, fizemos juntas uma api para controlar os filmes que queremos assistir. Que tal fazermos uma para controlar nossas séries?
+Durante a aula, fizemos juntas uma api para controlar os filmes que queremos assistir. Que tal fazermos uma para controlar nossas séries? Nessa api queremos poder cadastrar séries, cada uma com inúmeras temporadas e cada temporada com uma lista de episódios.
 
 ---
 
 ### Series
-
-Nessa api queremos poder cadastrar séries, cada uma com inúmeras temporadas e cada temporada com uma lista de episódios. A estrutura de uma série ficaria dessa forma:
 
 ```json
 [
@@ -145,7 +143,7 @@ Nessa api queremos poder cadastrar séries, cada uma com inúmeras temporadas e 
 | POST         | `/series`              | Cadastrar nova série                  |
 | PUT          | `/series/:id`          | Atualizar uma série específica        |
 | DELETE       | `/series/:id`          | Deletar uma série específica          |
-| PATCH        | `/series/:id/liked`    | Atualizar se a série ganhou um like   |
+| PATCH        | `/series/:id/liked`    | Atualizar se gostou da série ou não   |
 
 ---
 
