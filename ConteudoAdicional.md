@@ -80,7 +80,7 @@ Nesse código do for, declaramos uma variável posição que não é constante, 
 
 Em seguida, colocamos uma codicional para que o for continue rodando. A condição é *posicao < tamanhoDoMeuArray*. Enquanto minha posição for menor que o tamanho do meu array (enquanto ele não terminar de percorrer meu array), quero que o for continue a iteração.
 
-Ao final, temos o incremento que iremos fazer a nossa variável posição. A cada iteração do for (a cada loop), a posicao executará *posicao ++*. O *posicao ++* é a mesma coisa de posicao + 1 (subir um número na posição).
+Ao final, temos o incremento que iremos fazer a nossa variável posição. A cada iteração do for (a cada loop), a posicao executará *posicao++*. O *posicao++* é a mesma coisa de let posicao = posicao + 1. O *posicao++* soma 1 a variável posicao.
 
 Com isso para percorrer o array de forma manual utilizando o array, podemos fazer da seguinte maneira:
 
