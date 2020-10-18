@@ -68,7 +68,13 @@ Meu elemento: Livro 2
 Meu elemento: Livro 3
 ```
 
-No exemplo abaixo, estou usando um for (de forma manual), percorrendo meu array. Conforme vou andando de posição, estou exibindo no meu terminal cada elemento do meu array.
+Podemos utilizar um for de forma manual para percorrer esse mesmo array do exemplo acima, utilizando a estrutura:
+
+```
+for (let posicao = 0; posicao < tamanhoDoMeuArray; posicao++) {
+  // codigo que vamos escrever para percorrer
+}
+```
 
 Nesse código do for, declaramos uma variável posição que não é constante, ela se modifica conforme vai acontecendo o *loop* do for. Então nesse caso ao invés de usar *cons posicao = 0*, usamos o *let* fazendo *let posicao = 0*. Em adição, atribuímos o valor 0 (zero) a variável *posicao* para dizer que ela irá inicializar com 0 (zero).
 
