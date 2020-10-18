@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Malévola",
+        "genre": "Aventura",
+        "synopsis": "Malévola, uma jovem de coração puro, vive em um pacífico reino na floresta (...)",
+        "watched": true
+    },
+    {
+        "id": 2,
+        "name": "Um sonho possível",
+        "genre": "Drama",
+        "synopsis": "Michael Oher é negro, pobre, grandalhão e calado. Ele foi abandonado pela mãe e agora (...)",
+        "watched": false
+    },
+    {
+        "id": 3,
+        "name": "Jogos Vorazes",
+        "genre": "Aventura",
+        "synopsis": "Num futuro distante, boa parte da população é controlada por um regime totalitário, que (...)",
+        "watched": false
+    }
+]
