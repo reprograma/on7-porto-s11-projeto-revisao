@@ -49,51 +49,7 @@ Mas lembrando que o código que implementamos no *getAllMovies* só filtra pelo 
 
 ## For percorrendo manualmente um array
 
-Aprendemos ao longo do curso que podemos percorrer um array utilizando o *forEach*. Agora também sabemos que podemos também fazer um *for* (percorrer um array) de forma manual. Essa forma manual nos abre possibilidades para que possamos construir diversas lógicas.
-
-No exemplo da aula de hoje, inventamos juntas que nossa rota de *DELETE* não iria apenas ter a regra de deletar nosso filme dado um id. Teria, na verdade, uma lógica um pouquinho mais complexa:
-
-- [] Caso meu array *moviesFound* tivesse apenas 1 elemento esse seria deletado.
-- [] Porém (|| -> símbolo que utilizei no código que sinifica OU, Porém, Todavia...), se ele tivesse mais de um elemento, ele manteria o primeiro elemento sempre e eliminaria os demais repetidos.
-
-A regra que inventamos não faz muito sentido na prática para nosso produto de Filmes, mas é legal para treinarmos. Então nosso deleteMovie tinha ficado da seguinte maneira com essa regra que inventamos:
-
-```movieController.js
-const deleteMovie = (req, res) => {
-    try {
-        const movieId = req.params.id
-        const moviesFound = movies.filter(movie => movie.id == movieId) // vou achar todos os filmes que possuem o id passado
-
-        if (moviesFound) {// o filme existe no meu array?
-
-            for (let position = 0; position < moviesFound.length; position++) {
-                console.log(`Posição: ${position}`) // exibo o valor da minha variável de posição
-                console.log(moviesFound[position]) // exibo o filme que está nessa posição do array moviesFound
-
-                if ( moviesFound.length == 1 || (moviesFound.length > 1 && position > 0)) { // aplico a lógica que inventamos de deletar apenas quando só tiver um elemento no array (tamanho do array for 1) ou quando tiver mais de um elemento, deletar todos que não forem da primeira posição
-                    //deletar
-                    const movieIndex = movies.indexOf(moviesFound[position])
-                    movies.splice(movieIndex, 1)
-                }
-            }
-            fs.writeFile("./src/models/movies.json", JSON.stringify(movies), 'utf8', function (err) {
-                if (err) {
-                    res.status(500).send({ message: err })
-                } else {
-                    console.log("Filme deletado com sucesso do arquivo!")
-                    res.sendStatus(204) // 204 No Content
-                }
-            })
-        } else {
-            // se o filme não foi encontrado
-            res.status(400).send({ message: "Filme não encontrado para deletar" })
-        }
-    } catch (error) {
-        console.log(error)
-        res.status(500).send({ message: "Erro ao deletar filme" })
-    }
-}
-```
+Aprendemos ao longo do curso que podemos percorrer um array utilizando o *forEach*. Agora também sabemos que podemos também fazer um *for* (percorrer um array) de forma manual. Essa forma manual nos abre possibilidades para que possamos construir diversas lógicas. Mas como podemos fazer isso mesmo? Vamos relembrar?
 
 Primeiramente, é importante lembrar que o array começa SEMPRE na posição 0 (zero). Exemplo:
 
@@ -139,4 +95,49 @@ Minha posição: 1
 Meu elemento: Livro 2
 Minha posição: 2
 Meu elemento: Livro 3
+```
+
+
+No exemplo da aula de hoje, inventamos juntas que nossa rota de *DELETE* não iria apenas ter a regra de deletar nosso filme dado um id. Teria, na verdade, uma lógica um pouquinho mais complexa:
+
+- [ ] Caso meu array *moviesFound* tivesse apenas 1 elemento esse seria deletado.
+- [ ] Porém (|| -> símbolo que utilizei no código que sinifica OU, Porém, Todavia...), se ele tivesse mais de um elemento, ele manteria o primeiro elemento sempre e eliminaria os demais repetidos.
+
+A regra que inventamos não faz muito sentido na prática para nosso produto de Filmes, mas é legal para treinarmos. Então nosso deleteMovie tinha ficado da seguinte maneira com essa regra que inventamos:
+
+```movieController.js
+const deleteMovie = (req, res) => {
+    try {
+        const movieId = req.params.id
+        const moviesFound = movies.filter(movie => movie.id == movieId) // vou achar todos os filmes que possuem o id passado
+
+        if (moviesFound) {// o filme existe no meu array?
+
+            for (let position = 0; position < moviesFound.length; position++) {
+                console.log(`Posição: ${position}`) // exibo o valor da minha variável de posição
+                console.log(moviesFound[position]) // exibo o filme que está nessa posição do array moviesFound
+
+                if ( moviesFound.length == 1 || (moviesFound.length > 1 && position > 0)) { // aplico a lógica que inventamos de deletar apenas quando só tiver um elemento no array (tamanho do array for 1) ou quando tiver mais de um elemento, deletar todos que não forem da primeira posição
+                    //deletar
+                    const movieIndex = movies.indexOf(moviesFound[position])
+                    movies.splice(movieIndex, 1)
+                }
+            }
+            fs.writeFile("./src/models/movies.json", JSON.stringify(movies), 'utf8', function (err) {
+                if (err) {
+                    res.status(500).send({ message: err })
+                } else {
+                    console.log("Filme deletado com sucesso do arquivo!")
+                    res.sendStatus(204) // 204 No Content
+                }
+            })
+        } else {
+            // se o filme não foi encontrado
+            res.status(400).send({ message: "Filme não encontrado para deletar" })
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ message: "Erro ao deletar filme" })
+    }
+}
 ```
