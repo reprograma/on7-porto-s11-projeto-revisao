@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    <p align="center">Músicas<p>
+    <p align="center">Games<p>
 </h1>
 
 # Let's do this
