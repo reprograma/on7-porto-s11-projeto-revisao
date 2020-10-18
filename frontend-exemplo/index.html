@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>Front - Exemplo</title>
+    <style>
+      body {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "Roboto", sans-serif;
+      }
+
+      #tabela-lista {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #tabela-lista td,
+      #tabela-lista th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #tabela-lista tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      #tabela-lista tr:hover {
+        background-color: #b382ba;
+      }
+
+      #tabela-lista th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #7e459b;
+        color: white;
+      }
+
+      footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #7e459b;
+        color: white;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #tabela-lista .selecionado {
+        background-color: #2eb82e !important;
+      }
+
+      #tabela-lista tr td:last-child {
+        background-color: #ffcc00;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tabela-lista">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nome</th>
+          <th>Gênero</th>
+          <th>Sinopse</th>
+          <th>Visto?</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabela-lista-corpo"></tbody>
+    </table>
+
+    <footer>Feito com ♥ - {Reprograma}</footer>
+
+    <script>
+      var objJson = [];
+
+      const URL = `http://localhost:3000/movies`;
+      fetch(URL)
+        .then((resposta) => resposta.json())
+        .then((data) => preencherDados(data))
+        .catch((erro) => console.error(erro));
+
+      var listing_table = document.getElementById("tabela-lista-corpo");
+
+      listing_table.innerHTML = "";
+
+      function preencherDados(lista) {
+        lista.forEach((element) => {
+          let linha = document.createElement("tr");
+          let itemDaLinhaId = document.createElement("td");
+          itemDaLinhaId.innerText = element.id;
+          let itemDaLinhaNome = document.createElement("td");
+          itemDaLinhaNome.innerText = element.name;
+          let itemDaLinhaOpcao = document.createElement("td");
+          itemDaLinhaOpcao.innerHTML = element.genre;
+          let itemDaLinhaSinopse = document.createElement("td");
+          itemDaLinhaSinopse.innerHTML = element.synopsis;
+          let itemDaLinhaVisto = document.createElement("td");
+          itemDaLinhaVisto.innerHTML = element.watched ? "Sim" : "Não";
+          if (element.watched) itemDaLinhaVisto.className = "selecionado";
+          linha.appendChild(itemDaLinhaId);
+          linha.appendChild(itemDaLinhaNome);
+          linha.appendChild(itemDaLinhaOpcao);
+          linha.appendChild(itemDaLinhaSinopse);
+          linha.appendChild(itemDaLinhaVisto);
+          listing_table.appendChild(linha);
+        });
+      }
+    </script>
+  </body>
+</html>
