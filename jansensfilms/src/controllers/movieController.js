@@ -3,7 +3,7 @@ const fs = require("fs")
 
 const getAllMovies = (req, res) => {
     console.log("Minha query string:")
-    console.log(res.query)
+    console.log(req.query)
     const genre = req.query.genre // puxamos a informação de gênero da nossa query string
     if (genre) { // se eu tiver passado a query string com o gênero na hora de fazer a request...
         //filtra por genero meus filmes
