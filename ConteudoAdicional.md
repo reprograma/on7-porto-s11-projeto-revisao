@@ -49,12 +49,65 @@ Mas lembrando que o código que implementamos no *getAllMovies* só filtra pelo 
 
 ## For percorrendo manualmente um array
 
-Aprendemos ao longo do curso que podemos percorrer um array utilizando o *forEach*. Agora também sabemos que podemos também fazer um *for* (percorrer um array) de forma manual. Essa forma manual nos abre possibilidades para que possamos construir diversas lógicas.
+Aprendemos ao longo do curso que podemos percorrer um array utilizando o *forEach*. Agora também sabemos que podemos também fazer um *for* (percorrer um array) de forma manual. Essa forma manual nos abre possibilidades para que possamos construir diversas lógicas. Mas como podemos fazer isso mesmo? Vamos relembrar?
+
+Primeiramente, é importante lembrar que o array começa SEMPRE na posição 0 (zero). Exemplo:
+
+```
+const meuArray = ['Livro 1', 'Livro 2', 'Livro 3']
+console.log(`Meu elemento: ${meuArray[0]}`)
+console.log(`Meu elemento: ${meuArray[1]}`)
+console.log(`Meu elemento: ${meuArray[2]}`)
+
+```
+Se rodarmos o código acima, teremos algo assim no nosso terminal:
+
+```
+Meu elemento: Livro 1
+Meu elemento: Livro 2
+Meu elemento: Livro 3
+```
+
+Podemos utilizar um for de forma manual para percorrer esse mesmo array do exemplo acima, utilizando a estrutura:
+
+```
+for (let posicao = 0; posicao < tamanhoDoMeuArray; posicao++) {
+  // codigo que vamos escrever para percorrer
+}
+```
+
+Nesse código do for, declaramos uma variável posição que não é constante, ela se modifica conforme vai acontecendo o *loop* do for. Então nesse caso ao invés de usar *cons posicao = 0*, usamos o *let* fazendo *let posicao = 0*. Em adição, atribuímos o valor 0 (zero) a variável *posicao* para dizer que ela irá inicializar com 0 (zero).
+
+Em seguida, colocamos uma codicional para que o for continue rodando. A condição é *posicao < tamanhoDoMeuArray*. Enquanto minha posição for menor que o tamanho do meu array (enquanto ele não terminar de percorrer meu array), quero que o for continue a iteração.
+
+Ao final, temos o incremento que iremos fazer a nossa variável posição. A cada iteração do for (a cada loop), a posicao executará *posicao++*. O *posicao++* é a mesma coisa de let posicao = posicao + 1. O *posicao++* soma 1 a variável posicao.
+
+Com isso para percorrer o array de forma manual utilizando o array, podemos fazer da seguinte maneira:
+
+```
+const meuArray = ['Livro 1', 'Livro 2', 'Livro 3']
+const tamanhoDoMeuArray = meuArray.length
+for (let posicao = 0; posicao < tamanhoDoMeuArray; posicao++) {
+  console.log(`Minha posição: ${posicao}`)
+  console.log(`Meu elemento: ${meuArray[posicao]}`)
+}
+```
+No caso se rodarmos esse código o nosso terminal irá exibir algo assim:
+
+```
+Minha posição: 0
+Meu elemento: Livro 1
+Minha posição: 1
+Meu elemento: Livro 2
+Minha posição: 2
+Meu elemento: Livro 3
+```
+
 
 No exemplo da aula de hoje, inventamos juntas que nossa rota de *DELETE* não iria apenas ter a regra de deletar nosso filme dado um id. Teria, na verdade, uma lógica um pouquinho mais complexa:
 
-- [] Caso meu array *moviesFound* tivesse apenas 1 elemento esse seria deletado.
-- [] Porém (|| -> símbolo que utilizei no código que sinifica OU, Porém, Todavia...), se ele tivesse mais de um elemento, ele manteria o primeiro elemento sempre e eliminaria os demais repetidos.
+- [ ] Caso meu array *moviesFound* tivesse apenas 1 elemento esse seria deletado.
+- [ ] Porém (|| -> símbolo que utilizei no código que sinifica OU, Porém, Todavia...), se ele tivesse mais de um elemento, ele manteria o primeiro elemento sempre e eliminaria os demais repetidos.
 
 A regra que inventamos não faz muito sentido na prática para nosso produto de Filmes, mas é legal para treinarmos. Então nosso deleteMovie tinha ficado da seguinte maneira com essa regra que inventamos:
 
@@ -93,50 +146,4 @@ const deleteMovie = (req, res) => {
         res.status(500).send({ message: "Erro ao deletar filme" })
     }
 }
-```
-
-Primeiramente, é importante lembrar que o array começa SEMPRE na posição 0 (zero). Exemplo:
-
-```
-const meuArray = ['Livro 1', 'Livro 2', 'Livro 3']
-console.log(`Meu elemento: ${meuArray[0]}`)
-console.log(`Meu elemento: ${meuArray[1]}`)
-console.log(`Meu elemento: ${meuArray[2]}`)
-
-```
-Se rodarmos o código acima, teremos algo assim no nosso terminal:
-
-```
-Meu elemento: Livro 1
-Meu elemento: Livro 2
-Meu elemento: Livro 3
-```
-
-No exemplo abaixo, estou usando um for (de forma manual), percorrendo meu array. Conforme vou andando de posição, estou exibindo no meu terminal cada elemento do meu array.
-
-Nesse código do for, declaramos uma variável posição que não é constante, ela se modifica conforme vai acontecendo o *loop* do for. Então nesse caso ao invés de usar *cons posicao = 0*, usamos o *let* fazendo *let posicao = 0*. Em adição, atribuímos o valor 0 (zero) a variável *posicao* para dizer que ela irá inicializar com 0 (zero).
-
-Em seguida, colocamos uma codicional para que o for continue rodando. A condição é *posicao < tamanhoDoMeuArray*. Enquanto minha posição for menor que o tamanho do meu array (enquanto ele não terminar de percorrer meu array), quero que o for continue a iteração.
-
-Ao final, temos o incremento que iremos fazer a nossa variável posição. A cada iteração do for (a cada loop), a posicao executará *posicao ++*. O *posicao ++* é a mesma coisa de posicao + 1 (subir um número na posição).
-
-Com isso para percorrer o array de forma manual utilizando o array, podemos fazer da seguinte maneira:
-
-```
-const meuArray = ['Livro 1', 'Livro 2', 'Livro 3']
-const tamanhoDoMeuArray = meuArray.length
-for (let posicao = 0; posicao < tamanhoDoMeuArray; posicao++) {
-  console.log(`Minha posição: ${posicao}`)
-  console.log(`Meu elemento: ${meuArray[posicao]}`)
-}
-```
-No caso se rodarmos esse código o nosso terminal irá exibir algo assim:
-
-```
-Minha posição: 0
-Meu elemento: Livro 1
-Minha posição: 1
-Meu elemento: Livro 2
-Minha posição: 2
-Meu elemento: Livro 3
 ```
