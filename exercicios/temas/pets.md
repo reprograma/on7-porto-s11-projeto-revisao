@@ -42,9 +42,9 @@ Por exemplo, perto da minha casa só tem uma veterinária que atende gatinhos =/
 | GET          | `/pets`      | Retorna todos os pets             |
 | GET          | `/pets/:id`  | Retorna apenas um pet específico  |
 | POST         | `/pets`      | Cadastrar um pet                  |
-| PUT          | `/pets/:id`  | Atualizar um pet específico       |
+| PUT          | `/pets/:id`  | Atualizar um pet específico por inteiro       |
 | DELETE       | `/pets/:id`  | Deletar um pet específico         |
-| PATCH        | `/pets/:id`  | Atualizar um pet específico       |
+| PATCH        | `/pets/:id`  | Atualizar apenas um atributo de um pet específico (ex: Nome Fantasia ou Endereço ou Telefone ou Atende, fica ao seu critério)      |
 
 ---
 
