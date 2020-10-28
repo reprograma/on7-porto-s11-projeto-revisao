@@ -1,0 +1,977 @@
+{
+	"info": {
+		"_postman_id": "8ab200c8-4b3a-499c-a15c-649e3b89ebf5",
+		"name": "Semana-11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Filmes.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"name\": \"The Old Guard\",\n    \"genre\": \"Ação\",\n    \"synopsis\": \"The Old Guard é um filme de ação e ficção científica de super-heróis americano de 2020 dirigido por Gina (...)\",\n    \"watched\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"name\": \"The Old Guard\",\n    \"genre\": \"Ficção Científica\",\n    \"synopsis\": \"The Old Guard é um filme de ação e ficção científica de super-heróis americano de 2020 dirigido por Gina (...)\",\n    \"watched\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filmes.Assistido",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"watched\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/2/watched",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"2",
+								"watched"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e0aa8210-f47f-4517-8240-db831a71d467",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f561fc5-a42f-4b47-abfc-96514a9119fc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Series",
+			"item": [
+				{
+					"name": "Series.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 3,\n  \"name\": \"Um Maluco no Pedaço\",\n  \"genre\": \"Comédia\",\n  \"synopsis\": \"Will deixa a vida difícil na Filadélfia para morar com parentes ricos na pomposa Bel-Air (...)\",\n  \"liked\": false,\n  \"seasons\": \n    [\n       {\n         \"id\": 1,\n         \"code\": \"season01\",\n         \"episodes\": \n            [\n              {\n                \"id\": 1,\n                \"code\": \"ep01\",\n                \"name\": \"A Vida do Maluco no Pedaço\",\n                \"watched\": false\n              },\n              {\n                \"id\": 2,\n                \"code\": \"ep02\",\n                \"name\": \"Arrasa na Bateria, Ashley\",\n                \"watched\": false\n              },\n              {\n                \"id\": 3,\n                \"code\": \"ep03\",\n                \"name\": \"Missão Conquistar\",\n                \"watched\": false\n              }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/series",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/series/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 3,\n  \"name\": \"Um Maluco no Pedaço\",\n  \"genre\": \"Comédia\",\n  \"synopsis\": \"Will deixa a vida difícil na Filadélfia para morar com parentes ricos na pomposa Bel-Air (...)\",\n  \"seasons\": \n    [\n       {\n         \"id\": 1,\n         \"code\": \"season01\",\n         \"episodes\": \n            [\n               {\n                \"id\": 1,\n                \"code\": \"ep01\",\n                \"name\": \"A Vida do Maluco no Pedaço\",\n                \"watched\": false\n              },\n              {\n                \"id\": 2,\n                \"code\": \"ep02\",\n                \"name\": \"Arrasa na Bateria, Ashley\",\n                \"watched\": false\n              },\n              {\n                \"id\": 3,\n                \"code\": \"ep03\",\n                \"name\": \"Missão Conquistar\",\n                \"watched\": false\n              },\n              {\n                 \"id\": 4,\n                 \"code\": \"ep04\",\n                 \"name\": \"Não Mexa com meu Porquinho\",\n                 \"watched\": false\n               }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/series/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.AdicionaTemporada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"code\": \"season03\",\n    \"episodes\": [\n        {\n            \"id\": 1,\n            \"code\": \"ep01\",\n            \"name\": \"Aquele com a nova namorada\",\n            \"watched\": false\n        },\n        {\n            \"id\": 2,\n            \"code\": \"ep02\",\n            \"name\": \"Aquele novo do leite materno\",\n            \"watched\": false\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series/2/season",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"2",
+								"season"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.AdicionaEpisodio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"code\": \"ep05\",\n    \"name\": \"Aquele Novo\",\n    \"watched\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series/2/season/1/episode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"2",
+								"season",
+								"1",
+								"episode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.DeletarEpisodio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/series/2/season/1/episode/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"2",
+								"season",
+								"1",
+								"episode",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.EpisodioAssistido",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"watched\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series/2/season/1/episode/4/watched",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"2",
+								"season",
+								"1",
+								"episode",
+								"4",
+								"watched"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Series.Like",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"liked\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/series/2/liked",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"series",
+								"2",
+								"liked"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pets",
+			"item": [
+				{
+					"name": "Pets.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pets?estado=São%20Paulo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "São%20Paulo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pets.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pets/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pets.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 3,\n        \"nomeFantasia\": \"Pet Shop 3\",\n        \"endereco\": \"Niterói, 1273 - São Paulo\",\n        \"telefone\": \"11 98765-4321\",\n        \"atende\": [\"gatos\"] \n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pets.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 2,\n        \"nomeFantasia\": \"Pet Shop Alterado 2\",\n        \"endereco\": \"Niterói, 1273 - Rio de Janeiro\",\n        \"telefone\": \"11 98765-4321\",\n        \"atende\": [\"cães\", \"papagaio\", \"gatos\"] \n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pets/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pets.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pets/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pets.AlterarNomeFantasia",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nomeFantasia\": \"Pet Shop 1 Novo Nome 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pets/1/name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pets",
+								"1",
+								"name"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Musics",
+			"item": [
+				{
+					"name": "Musics.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 4,\n        \"title\": \"Show das Poderosas\",\n        \"duration\": \"03:50\",\n        \"launchYear\": \"2013\",\n        \"favorited\": true,\n        \"artists\": [\n            \"Anitta\"\n        ]\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/musics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musics.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/musics?afterLaunchYear=1999&artist=Sandy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics"
+							],
+							"query": [
+								{
+									"key": "afterLaunchYear",
+									"value": "1999"
+								},
+								{
+									"key": "artist",
+									"value": "Sandy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musics.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/musics/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musics.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/musics/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musics.Favoritar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"favorited\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/musics/2/favorited",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics",
+								"2",
+								"favorited"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musics.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 2,\n        \"title\": \"A Lenda dessa paixão que faz sorrir ou faz chorar\",\n        \"duration\": \"04:31\",\n        \"launchYear\": \"2000\",\n        \"favorited\": false,\n        \"artists\": [\n            \"Sandy\",\n            \"Júnior\"\n        ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/musics/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"musics",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Games",
+			"item": [
+				{
+					"name": "Games.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 4,\n        \"title\": \"Bomberman\",\n        \"launchYear\": \"1983\",\n        \"consoles\": [\n            \"megaDrive\",\n            \"superNintendo\",\n            \"nintendo64\"\n        ],\n        \"liked\": false,\n        \"stages\": [\n            {\n                \"id\": 1,\n                \"name\": \"Battle Party\",\n                \"done\": false\n            }\n        ]\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/games",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/games",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/games/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games.BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/games/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games.Like",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"liked\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/games/4/liked",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games",
+								"4",
+								"liked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Games.Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 2,\n        \"title\": \"Mario Kart\",\n        \"launchYear\": \"1992\",\n        \"consoles\": [\n            \"superNintendo\"\n        ],\n        \"liked\": true,\n        \"stages\": [\n            {\n                \"id\": 1,\n                \"name\": \"Ghost Valley\",\n                \"done\": false\n            }\n        ]\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/games/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"games",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
