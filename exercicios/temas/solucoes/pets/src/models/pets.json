@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nomeFantasia": "Pet Shop 1",
+        "endereco": "Avenida Paulista, 1273 - São Paulo",
+        "telefone": "11 12345-6789",
+        "atende": [
+            "cães",
+            "gatos"
+        ]
+    },
+    {
+        "id": 2,
+        "nomeFantasia": "Pet Shop 2",
+        "endereco": "Niterói, 1273 - Rio de Janeiro",
+        "telefone": "11 98765-4321",
+        "atende": [
+            "cães",
+            "papagaio"
+        ]
+    }
+]

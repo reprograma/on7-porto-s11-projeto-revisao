@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Evidências",
+        "duration": "04:39",
+        "launchYear": "1990",
+        "favorited": true,
+        "artists": [
+            "Chitãozinho",
+            "Chororó"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "A Lenda",
+        "duration": "04:31",
+        "launchYear": "2000",
+        "favorited": true,
+        "artists": [
+            "Sandy",
+            "Júnior"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Me Espera",
+        "duration": "03:50",
+        "launchYear": "2016",
+        "favorited": true,
+        "artists": [
+            "Tiago Iorc",
+            "Sandy"
+        ]
+    }
+]

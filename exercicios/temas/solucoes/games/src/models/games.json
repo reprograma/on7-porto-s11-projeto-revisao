@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "title": "Fall Guys",
+        "launchYear": "2020",
+        "consoles": [
+            "ps4"
+        ],
+        "liked": true,
+        "stages": [
+            {
+                "id": 1,
+                "name": "Loucura nas Alturas",
+                "done": true
+            },
+            {
+                "id": 2,
+                "name": "Gangorra",
+                "done": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Mario Kart",
+        "launchYear": "1992",
+        "consoles": [
+            "superNintendo",
+            "nintendo64",
+            "nintendoSwitch"
+        ],
+        "liked": false,
+        "stages": [
+            {
+                "id": 1,
+                "name": "Ghost Valley",
+                "done": false
+            },
+            {
+                "id": 2,
+                "name": "Baby Park",
+                "done": true
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Super Smash Bross",
+        "launchYear": "1999",
+        "consoles": [
+            "nintendo64",
+            "nintendoSwitch"
+        ],
+        "liked": true,
+        "stages": [
+            {
+                "id": 1,
+                "name": "Zelda",
+                "done": false
+            },
+            {
+                "id": 2,
+                "name": "Pokemon",
+                "done": true
+            },
+            {
+                "id": 3,
+                "name": "Kirby",
+                "done": false
+            }
+        ]
+    }
+]
