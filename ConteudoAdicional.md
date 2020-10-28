@@ -147,3 +147,35 @@ const deleteMovie = (req, res) => {
     }
 }
 ```
+
+## Encontrando o item mais barato
+
+Na nossa aula de revisão, fizemos junts um algorítmo utilizando arrays, onde conseguimos encontrar o item mais barato do nosso array. Para testar o código abaixo na sua máquina, basta baixar o arquivo https://github.com/reprograma/on7-porto-s11-projeto-revisao/blob/master/exercicios/ordenaItens.js . Feito isso, só rodá-lo pelo terminal. Para isso acesse pelo terminal a pasta onde ele estiver no seu computador e rode: *node ordenaItens.js*
+
+```maisBarato.js
+const run = () => {
+    const itens = []
+    itens.push({ nome: "Televisão", preco: 4000 }) //0 
+    itens.push({ nome: "Máquina de Lavar Roupa", preco: 2500 }) //1
+    itens.push({ nome: "Microondas", preco: 450 }) //2
+    itens.push({ nome: "Cama", preco: 2500 }) //3
+    itens.push({ nome: "Fogão", preco: 1600 }) //4
+    // tamanho -> 5
+    const maisBarato = buscaMenor(itens, 0, itens.length - 1)
+    console.log(maisBarato)
+    console.log(`O ${itens[maisBarato].nome} é o mais barato, e custa ${itens[maisBarato].preco}`)
+}
+
+const buscaMenor = (itens, inicio, termino) => {
+    let maisBarato = inicio
+    // microondas
+    for (let atual = 0; atual <= termino; atual++) {
+        if (itens[atual].preco < itens[maisBarato].preco) {
+            maisBarato = atual
+        }
+    }
+    return maisBarato
+}
+
+run()
+```
