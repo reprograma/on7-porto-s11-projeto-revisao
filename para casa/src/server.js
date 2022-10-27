@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('../para casa/src/routes')
+const router = require('./routes')
 const app = express();
 
 app.use(express.json())
