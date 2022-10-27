@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "eee67560-f0f0-47a7-9b30-4828cfab9ddb",
+		"name": "Projeto_API_Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23650469"
+	},
+	"item": [
+		{
+			"name": "Busca Contas do Clientes Nome",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Busca Contas do Clientes CpF",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Encerrar contas de clientes",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Criar um cliente novo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3435/contas-clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3435",
+					"path": [
+						"contas-clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Efetuar um Saque",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"saque\": 25000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3435/contas-clientes/10/saque",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3435",
+					"path": [
+						"contas-clientes",
+						"10",
+						"saque"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
